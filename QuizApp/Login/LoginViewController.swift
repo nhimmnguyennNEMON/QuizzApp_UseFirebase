@@ -34,6 +34,7 @@ class LoginViewController: UIViewController {
 //            PowerplayToastKit
 //                .shared
 //                .showToast(of: .warning(title: "Warning", message: "Please enter all email and password"), at: .center, for: 5)
+            return
             self.view.makeToast("Please enter all Email and Password")
         } else {
             //check account
@@ -44,7 +45,7 @@ class LoginViewController: UIViewController {
                     authData?.user.reload(completion: { (error) in
                         if (authData?.user.isEmailVerified)! {
                             self?.view.makeToast("Login Succcessfully!")
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                 let vc = TopicViewController(nibName: "TopicViewController", bundle: nil)
                                 self?.navigationController?.pushViewController(vc, animated: true)
                             }

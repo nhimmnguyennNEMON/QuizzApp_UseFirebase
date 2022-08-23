@@ -41,7 +41,7 @@
                     </constraints>
                 </imageView>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="guL-Rs-rI8">
-                    <rect key="frame" x="75" y="493" width="303" height="34"/>
+                    <rect key="frame" x="75" y="492.66666666666669" width="303" height="34.000000000000057"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>

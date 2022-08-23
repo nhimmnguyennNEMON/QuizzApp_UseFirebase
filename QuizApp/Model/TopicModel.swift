@@ -8,22 +8,32 @@
 import Foundation
 
 struct TopicQuiz: Codable{
-    
+
     //it field model on firebase
-    var topic_1: String?
-    var topic_2: String?
-    var topic_3: String?
-    
-    enum CodingKeys: String, CodingKey{
-        case topic_1 = "Choice1"
-        case topic_2 = "Choice2"
-        case topic_3 = "Choice3"
+    var civicEducation: [Questions]?
+    var geography: [Questions]?
+    var history: [Questions]?
+
+    enum CodingKeys: String, CodingKey {
+        case civicEducation = "Civic Education"
+        case geography = "Geography"
+        case history = "History"
     }
-    
+
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-        topic_1 = try values.decodeIfPresent(String.self, forKey: .topic_1)
-        topic_2 = try values.decodeIfPresent(String.self, forKey: .topic_2)
-        topic_3 = try values.decodeIfPresent(String.self, forKey: .topic_3)
+        civicEducation = try values.decodeIfPresent([Questions].self, forKey: .civicEducation)
+        geography = try values.decodeIfPresent([Questions].self, forKey: .geography)
+        history = try values.decodeIfPresent([Questions].self, forKey: .history)
     }
+
 }
+
+//class Exam: NSObject {
+//    var title: String = ""
+//    var listQuestion: [Questions]?
+//    init(title: String, listQuestion: [Questions]) {
+//        self.title = title
+//        self.listQuestion = listQuestion
+//    }
+//}

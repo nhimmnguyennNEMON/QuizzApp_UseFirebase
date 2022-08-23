@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		18C7164F12CCE751A0BBB90F /* Pods_QuizAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33DBE1843DA3D28392B7AF1E /* Pods_QuizAppTests.framework */; };
 		552B03693A2CC020DC71CC7D /* Pods_QuizApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5804FFA4181A8922B8C6410B /* Pods_QuizApp.framework */; };
+		8D57DF1828B4C5D300E91BFC /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D57DF1628B4C5D300E91BFC /* TestTableViewCell.swift */; };
+		8D57DF1928B4C5D300E91BFC /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D57DF1728B4C5D300E91BFC /* TestTableViewCell.xib */; };
 		8D71E14128AB46EE006995AB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71E14028AB46EE006995AB /* SceneDelegate.swift */; };
 		8D71E14328AB46EE006995AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71E14228AB46EE006995AB /* ViewController.swift */; };
 		8D71E14928AB46EE006995AB /* QuizApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D71E14728AB46EE006995AB /* QuizApp.xcdatamodeld */; };
@@ -29,7 +31,8 @@
 		8DA0916928AE1CF8001790BD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0916728AE1CF8001790BD /* RegisterViewController.swift */; };
 		8DA0916A28AE1CF8001790BD /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DA0916828AE1CF8001790BD /* RegisterViewController.xib */; };
 		8DA0916C28AE478D001790BD /* TopicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0916B28AE478D001790BD /* TopicModel.swift */; };
-		8DA0916E28AE4859001790BD /* GetJsonFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0916D28AE4859001790BD /* GetJsonFirebase.swift */; };
+		8DA0916E28AE4859001790BD /* ParsingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA0916D28AE4859001790BD /* ParsingData.swift */; };
+		8DA80D6928B3287100F010BB /* GetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA80D6828B3287100F010BB /* GetAPI.swift */; };
 		8DC4B07A28ACD77A001D64C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D71E13E28AB46EE006995AB /* AppDelegate.swift */; };
 		8DC4B08328ACF0F8001D64C7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC4B08128ACF0F8001D64C7 /* HomeViewController.swift */; };
 		8DC4B08428ACF0F8001D64C7 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DC4B08228ACF0F8001D64C7 /* HomeViewController.xib */; };
@@ -60,6 +63,8 @@
 		5691EDD8F9FF04641379FED5 /* Pods-QuizApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizApp.debug.xcconfig"; path = "Target Support Files/Pods-QuizApp/Pods-QuizApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5804FFA4181A8922B8C6410B /* Pods_QuizApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuizApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A7DBE50982CFBA63D8445E7 /* Pods-QuizAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizAppTests.debug.xcconfig"; path = "Target Support Files/Pods-QuizAppTests/Pods-QuizAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8D57DF1628B4C5D300E91BFC /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
+		8D57DF1728B4C5D300E91BFC /* TestTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
 		8D71E13B28AB46EE006995AB /* QuizApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D71E13E28AB46EE006995AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D71E14028AB46EE006995AB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,7 +90,8 @@
 		8DA0916728AE1CF8001790BD /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		8DA0916828AE1CF8001790BD /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		8DA0916B28AE478D001790BD /* TopicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicModel.swift; sourceTree = "<group>"; };
-		8DA0916D28AE4859001790BD /* GetJsonFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetJsonFirebase.swift; sourceTree = "<group>"; };
+		8DA0916D28AE4859001790BD /* ParsingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsingData.swift; sourceTree = "<group>"; };
+		8DA80D6828B3287100F010BB /* GetAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAPI.swift; sourceTree = "<group>"; };
 		8DC4B08128ACF0F8001D64C7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8DC4B08228ACF0F8001D64C7 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		8DD0A1C728AC956300A79E13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -210,7 +216,8 @@
 			isa = PBXGroup;
 			children = (
 				8DD0A1C728AC956300A79E13 /* GoogleService-Info.plist */,
-				8DA0916D28AE4859001790BD /* GetJsonFirebase.swift */,
+				8DA0916D28AE4859001790BD /* ParsingData.swift */,
+				8DA80D6828B3287100F010BB /* GetAPI.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -247,6 +254,8 @@
 			children = (
 				8D71E18D28AB83E2006995AB /* TopicViewController.swift */,
 				8D71E18E28AB83E2006995AB /* TopicViewController.xib */,
+				8D57DF1628B4C5D300E91BFC /* TestTableViewCell.swift */,
+				8D57DF1728B4C5D300E91BFC /* TestTableViewCell.xib */,
 			);
 			path = Topic;
 			sourceTree = "<group>";
@@ -395,6 +404,7 @@
 				8D71E14E28AB46F0006995AB /* LaunchScreen.storyboard in Resources */,
 				8DD0A1C828AC956300A79E13 /* GoogleService-Info.plist in Resources */,
 				8D71E19728AB8415006995AB /* ResultViewController.xib in Resources */,
+				8D57DF1928B4C5D300E91BFC /* TestTableViewCell.xib in Resources */,
 				8D71E14B28AB46F0006995AB /* Assets.xcassets in Resources */,
 				8D71E18728AB7661006995AB /* QuestionViewController.xib in Resources */,
 				8DA0916A28AE1CF8001790BD /* RegisterViewController.xib in Resources */,
@@ -530,7 +540,7 @@
 			files = (
 				8DC4B07A28ACD77A001D64C7 /* AppDelegate.swift in Sources */,
 				8D71E14328AB46EE006995AB /* ViewController.swift in Sources */,
-				8DA0916E28AE4859001790BD /* GetJsonFirebase.swift in Sources */,
+				8DA0916E28AE4859001790BD /* ParsingData.swift in Sources */,
 				8DA0916928AE1CF8001790BD /* RegisterViewController.swift in Sources */,
 				8D71E18F28AB83E2006995AB /* TopicViewController.swift in Sources */,
 				8D71E18628AB7661006995AB /* QuestionViewController.swift in Sources */,
@@ -539,8 +549,10 @@
 				8DA0916C28AE478D001790BD /* TopicModel.swift in Sources */,
 				8DC4B08328ACF0F8001D64C7 /* HomeViewController.swift in Sources */,
 				8D71E14128AB46EE006995AB /* SceneDelegate.swift in Sources */,
+				8DA80D6928B3287100F010BB /* GetAPI.swift in Sources */,
 				8D71E19C28AB844A006995AB /* LoginViewController.swift in Sources */,
 				8D71E19628AB8415006995AB /* ResultViewController.swift in Sources */,
+				8D57DF1828B4C5D300E91BFC /* TestTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,6 +732,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEPLOYMENT_LOCATION = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuizApp/Info.plist;
 				INFOPLIST_KEY_NSMainNibFile = HomeViewController;
@@ -749,6 +762,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEPLOYMENT_LOCATION = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = QuizApp/Info.plist;
 				INFOPLIST_KEY_NSMainNibFile = HomeViewController;
