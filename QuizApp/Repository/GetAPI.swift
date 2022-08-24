@@ -13,11 +13,12 @@ class GetAPI{
     
     static var share = GetAPI()
     
-//    var Quiz: [Exam] = []
+    var Quiz: [Exam] = []
+    var topicss: [String] = []
     
     var ref: DatabaseReference!
     
-    func getAllQuizz(childFB: String, topicFB: String, complete: @escaping (([Questions])->()) ) {
+    func getAllQuestion(_ childFB: String, _ topicFB: String, complete: @escaping (([Questions])->()) ) {
         ref = Database.database().reference()
         ref?.child(childFB).queryOrdered(byChild: topicFB).observeSingleEvent(of: .value, with: { snapshot in
             if let value = snapshot.value as? [String: Any]{
@@ -29,28 +30,21 @@ class GetAPI{
         })
     }
     
-    func getAllTopic(_ childFB: String, complete: @escaping ((TopicQuiz?)->())) {
+    func getAllQuizz(_ childFB: String, complete: @escaping ((Exam)->()), topic: @escaping (([String])->()))  {
         ref = Database.database().reference()
         ref?.child(childFB).observeSingleEvent(of: .value, with: { snapshot in
             if let value = snapshot.value as? [String: Any] {
-                if let value = value.toData() {
-                    let datas = value.tranforms(to: TopicQuiz.self)
-                    complete(datas)
+                for topics in value{
+                    let title: String = topics.key
+                    self.topicss.append(title)
+                    var quizExam: [Questions]?
+                    if let topic = topics.value as? [Any] {
+                        quizExam = stringArrayToData(from: topic)?.tranforms(to: [Questions].self)
+                        let examdata = Exam(title: self.topicss, listQuestion: quizExam!)
+                        complete(examdata)
+                    }
                 }
-                //                for topics in value{
-                //                    //                    if let values = topics.value as? [String: Any] {
-                //                    //                        let datas = values.toData()?.tranforms(to: TopicQuiz.self)
-                //                    //                        complete(datas)
-                //                    //                    }
-                //                    let title: String = topics.key
-                //                    var quizExam: [Questions]?
-                //                    if let topic = topics.value as? [Any] {
-                //                        quizExam = stringArrayToData(from: topic)?.tranforms(to: [Questions].self)
-                //                        let examdata = Exam(title: title, listQuestion: quizExam)
-                //                        Quiz.append(examdata)
-                //                    }
-                //
-                //                }
+                topic(self.topicss)
             }
         })
     }

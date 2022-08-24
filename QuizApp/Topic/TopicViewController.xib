@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopicViewController" customModule="QuizApp" customModuleProvider="target">
             <connections>
+                <outlet property="backButton" destination="8A9-fZ-whD" id="wIh-IE-uk5"/>
                 <outlet property="tbtopic" destination="lwv-aB-gTw" id="jr3-ta-Nu0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -31,9 +32,27 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="lwv-aB-gTw">
-                                    <rect key="frame" x="36" y="143.5" width="342" height="702.5"/>
+                                    <rect key="frame" x="36" y="143.5" width="342" height="404.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </tableView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHh-QA-5Zq">
+                                    <rect key="frame" x="36" y="609" width="342" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="e9k-7k-yrh"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="filled" title="Start">
+                                        <backgroundConfiguration key="background" cornerRadius="20"/>
+                                        <fontDescription key="titleFontDescription" type="boldSystem" pointSize="30"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="clickStart:" destination="-1" eventType="touchUpInside" id="NzN-qv-dLg"/>
+                                    </connections>
+                                </button>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="arrow.backward" catalog="system" id="8A9-fZ-whD">
+                                    <rect key="frame" x="26" y="13.5" width="35" height="35"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
@@ -42,10 +61,13 @@
                                 <constraint firstItem="HTh-db-9s3" firstAttribute="leading" secondItem="cV5-5x-djD" secondAttribute="leading" constant="100" id="6bi-FI-Dzw"/>
                                 <constraint firstItem="lwv-aB-gTw" firstAttribute="leading" secondItem="cV5-5x-djD" secondAttribute="leading" constant="36" id="EcF-Z3-E6F"/>
                                 <constraint firstItem="HTh-db-9s3" firstAttribute="top" secondItem="cV5-5x-djD" secondAttribute="top" constant="50" id="NUc-dt-xzV"/>
-                                <constraint firstAttribute="bottom" secondItem="lwv-aB-gTw" secondAttribute="bottom" constant="50" id="PbP-HS-dVQ"/>
+                                <constraint firstAttribute="bottom" secondItem="lwv-aB-gTw" secondAttribute="bottom" constant="348" id="PbP-HS-dVQ"/>
                                 <constraint firstAttribute="trailing" secondItem="lwv-aB-gTw" secondAttribute="trailing" constant="36" id="Rrb-tW-2jD"/>
                                 <constraint firstItem="lwv-aB-gTw" firstAttribute="top" secondItem="HTh-db-9s3" secondAttribute="bottom" constant="50" id="Shz-uy-iLD"/>
+                                <constraint firstItem="zHh-QA-5Zq" firstAttribute="top" secondItem="lwv-aB-gTw" secondAttribute="bottom" constant="61" id="Xsa-y4-vro"/>
+                                <constraint firstItem="zHh-QA-5Zq" firstAttribute="leading" secondItem="cV5-5x-djD" secondAttribute="leading" constant="36" id="ax5-EO-Hdh"/>
                                 <constraint firstAttribute="trailing" secondItem="HTh-db-9s3" secondAttribute="trailing" constant="100" id="reH-zX-Q3O"/>
+                                <constraint firstAttribute="trailing" secondItem="zHh-QA-5Zq" secondAttribute="trailing" constant="36" id="sST-iM-DO5"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -68,6 +90,7 @@
         </view>
     </objects>
     <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
