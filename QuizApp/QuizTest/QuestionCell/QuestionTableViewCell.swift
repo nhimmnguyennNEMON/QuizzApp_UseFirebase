@@ -12,12 +12,13 @@ class QuestionTableViewCell: UITableViewCell {
     @IBOutlet weak var answer: UILabel!
     @IBOutlet weak var choice: UILabel!
     @IBOutlet weak var cvQuestion: UIView!
+    var selectedIndex: IndexPath!
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        cvQuestion.layer.cornerRadius = 10
-        cvQuestion.layer.masksToBounds = true
-
+        contentView.layer.cornerRadius = 12 //set corner radius here
+        contentView.layer.borderWidth = 2 // set border width here
+        contentView.layer.borderColor = UIColor.clear.cgColor
         
     }
     
@@ -26,8 +27,12 @@ class QuestionTableViewCell: UITableViewCell {
         
         if selected {
             contentView.backgroundColor = UIColor.systemBlue
+            answer.textColor = UIColor.white
+            choice.textColor = UIColor.white
         } else {
             contentView.backgroundColor = UIColor.clear
+            answer.textColor = UIColor.black
+            choice.textColor = UIColor.black
         }
     }
     

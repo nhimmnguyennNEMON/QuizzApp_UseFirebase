@@ -9,7 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuestionViewController" customModule="QuizApp" customModuleProvider="target">
             <connections>
+                <outlet property="btNext" destination="bbi-rQ-3h2" id="9po-dZ-Wec"/>
+                <outlet property="btPre" destination="fyM-sz-fZe" id="U4F-rd-v9u"/>
+                <outlet property="lbQuestion" destination="FHw-gP-7x2" id="35v-qc-LNl"/>
                 <outlet property="tableQuesstion" destination="VHc-MI-9i7" id="8co-Qi-W3P"/>
+                <outlet property="topicExam" destination="U0v-hs-APX" id="tOZ-PX-NFB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,14 +28,14 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3KH-Un-aLr">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0v-hs-APX">
-                                    <rect key="frame" x="156.5" y="20" width="101" height="33"/>
-                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U0v-hs-APX">
+                                    <rect key="frame" x="36" y="52" width="342" height="27.5"/>
+                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="25"/>
                                     <color key="textColor" systemColor="linkColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIq-tk-fEJ">
-                                    <rect key="frame" x="36" y="20" width="70.5" height="26.5"/>
+                                    <rect key="frame" x="36" y="20" width="59" height="26.5"/>
                                     <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="24"/>
                                     <color key="textColor" systemColor="linkColor"/>
                                     <nil key="highlightedColor"/>
@@ -44,7 +48,7 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ý nào dưới đây đúng với vùng Trung du và miền núi Bắc Bộ ?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHw-gP-7x2">
-                                    <rect key="frame" x="36" y="88" width="342" height="150"/>
+                                    <rect key="frame" x="36" y="73.5" width="342" height="150"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="150" id="HqL-W1-xfy"/>
                                     </constraints>
@@ -53,59 +57,91 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VHc-MI-9i7">
-                                    <rect key="frame" x="36" y="288" width="342" height="376"/>
+                                    <rect key="frame" x="36" y="273.5" width="342" height="376"/>
                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="376" id="adZ-FY-JCx"/>
                                     </constraints>
                                 </tableView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyM-sz-fZe">
-                                    <rect key="frame" x="36" y="705" width="150" height="50"/>
+                                    <rect key="frame" x="36" y="690.5" width="150" height="50"/>
+                                    <color key="backgroundColor" systemColor="linkColor"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="150" id="N4m-Pb-tVf"/>
                                         <constraint firstAttribute="height" constant="50" id="cGZ-zK-gvz"/>
                                     </constraints>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="filled" title="Previous">
-                                        <backgroundConfiguration key="background" cornerRadius="20"/>
-                                        <fontDescription key="titleFontDescription" type="boldSystem" pointSize="24"/>
-                                    </buttonConfiguration>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Previous">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="preQues:" destination="-1" eventType="touchUpInside" id="F6L-cj-Xx2"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bbi-rQ-3h2">
-                                    <rect key="frame" x="228" y="705" width="150" height="50"/>
+                                    <rect key="frame" x="228" y="690.5" width="150" height="50"/>
+                                    <color key="backgroundColor" systemColor="linkColor"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="cZG-k9-0aW"/>
                                         <constraint firstAttribute="width" constant="150" id="fkQ-Ye-Qva"/>
                                     </constraints>
-                                    <state key="normal" title="Button"/>
-                                    <buttonConfiguration key="configuration" style="filled" title="Next">
-                                        <backgroundConfiguration key="background" cornerRadius="20"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Next">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="nextQues:" destination="-1" eventType="touchUpInside" id="27R-Pz-Sd4"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5t-YI-rtE">
+                                    <rect key="frame" x="36" y="781" width="342" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="dYY-oA-T5W"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Submit">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <buttonConfiguration key="configuration" style="filled" title="Submit">
+                                        <backgroundConfiguration key="background" cornerRadius="20">
+                                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        </backgroundConfiguration>
                                         <fontDescription key="titleFontDescription" type="boldSystem" pointSize="24"/>
+                                        <color key="baseForegroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </buttonConfiguration>
+                                    <connections>
+                                        <action selector="clickSubmit:" destination="-1" eventType="touchUpInside" id="aC4-Ra-GiP"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="fyM-sz-fZe" firstAttribute="leading" secondItem="3KH-Un-aLr" secondAttribute="leading" constant="36" id="1za-e5-iPm"/>
                                 <constraint firstAttribute="trailing" secondItem="HKR-fW-OG6" secondAttribute="trailing" constant="24" id="2WV-ii-BVx"/>
-                                <constraint firstItem="VHc-MI-9i7" firstAttribute="centerX" secondItem="U0v-hs-APX" secondAttribute="centerX" id="4ED-eL-xUG"/>
                                 <constraint firstItem="FHw-gP-7x2" firstAttribute="leading" secondItem="3KH-Un-aLr" secondAttribute="leading" constant="36" id="7Jy-Ec-P0q"/>
                                 <constraint firstAttribute="trailing" secondItem="FHw-gP-7x2" secondAttribute="trailing" constant="36" id="CIo-We-OtY"/>
-                                <constraint firstItem="U0v-hs-APX" firstAttribute="top" secondItem="3KH-Un-aLr" secondAttribute="top" constant="20" id="HT8-jC-X27"/>
                                 <constraint firstAttribute="trailing" secondItem="VHc-MI-9i7" secondAttribute="trailing" constant="36" id="Il7-La-0aH"/>
                                 <constraint firstAttribute="height" constant="896" id="LFR-kk-6T8"/>
+                                <constraint firstItem="U5t-YI-rtE" firstAttribute="leading" secondItem="3KH-Un-aLr" secondAttribute="leading" constant="36" id="Lh5-s1-JOZ"/>
                                 <constraint firstItem="dIq-tk-fEJ" firstAttribute="leading" secondItem="3KH-Un-aLr" secondAttribute="leading" constant="36" id="OZD-Go-roe"/>
-                                <constraint firstItem="HKR-fW-OG6" firstAttribute="leading" secondItem="U0v-hs-APX" secondAttribute="trailing" constant="102.5" id="ajG-IO-hUi"/>
+                                <constraint firstAttribute="trailing" secondItem="U0v-hs-APX" secondAttribute="trailing" constant="36" id="PpY-nH-w4w"/>
+                                <constraint firstItem="U0v-hs-APX" firstAttribute="leading" secondItem="3KH-Un-aLr" secondAttribute="leading" constant="36" id="Ylp-LE-bQW"/>
+                                <constraint firstAttribute="bottom" secondItem="U5t-YI-rtE" secondAttribute="bottom" constant="65" id="ZYT-DQ-F1c"/>
                                 <constraint firstItem="dIq-tk-fEJ" firstAttribute="top" secondItem="3KH-Un-aLr" secondAttribute="top" constant="20" id="b1s-rS-Ehf"/>
                                 <constraint firstItem="HKR-fW-OG6" firstAttribute="top" secondItem="3KH-Un-aLr" secondAttribute="top" constant="20" id="bNf-Gm-5Vt"/>
                                 <constraint firstItem="bbi-rQ-3h2" firstAttribute="leading" secondItem="fyM-sz-fZe" secondAttribute="trailing" constant="42" id="d5G-o4-45H"/>
                                 <constraint firstItem="bbi-rQ-3h2" firstAttribute="top" secondItem="VHc-MI-9i7" secondAttribute="bottom" constant="41" id="ebC-nw-oVL"/>
                                 <constraint firstItem="VHc-MI-9i7" firstAttribute="leading" secondItem="3KH-Un-aLr" secondAttribute="leading" constant="36" id="fEw-ID-di6"/>
                                 <constraint firstItem="VHc-MI-9i7" firstAttribute="top" secondItem="FHw-gP-7x2" secondAttribute="bottom" constant="50" id="gCh-o8-MU9"/>
+                                <constraint firstItem="U5t-YI-rtE" firstAttribute="top" secondItem="bbi-rQ-3h2" secondAttribute="bottom" constant="40.5" id="i7e-KF-bFJ"/>
                                 <constraint firstAttribute="trailing" secondItem="bbi-rQ-3h2" secondAttribute="trailing" constant="36" id="mB1-19-6Ul"/>
-                                <constraint firstItem="U0v-hs-APX" firstAttribute="leading" secondItem="dIq-tk-fEJ" secondAttribute="trailing" constant="50" id="q1z-fJ-FXv"/>
+                                <constraint firstItem="U0v-hs-APX" firstAttribute="top" secondItem="3KH-Un-aLr" secondAttribute="top" constant="52" id="pyf-MA-cfD"/>
                                 <constraint firstItem="fyM-sz-fZe" firstAttribute="top" secondItem="VHc-MI-9i7" secondAttribute="bottom" constant="41" id="sIB-sy-NJJ"/>
-                                <constraint firstItem="FHw-gP-7x2" firstAttribute="top" secondItem="U0v-hs-APX" secondAttribute="bottom" constant="35" id="t6V-s8-8Iy"/>
+                                <constraint firstItem="FHw-gP-7x2" firstAttribute="top" secondItem="U0v-hs-APX" secondAttribute="bottom" constant="-6" id="t6V-s8-8Iy"/>
+                                <constraint firstAttribute="trailing" secondItem="U5t-YI-rtE" secondAttribute="trailing" constant="36" id="xtG-EX-j05"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -138,6 +174,9 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

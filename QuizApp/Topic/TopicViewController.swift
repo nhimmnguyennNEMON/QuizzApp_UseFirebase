@@ -62,6 +62,7 @@ class TopicViewController: UIViewController {
         GetAPI.share.getAllQuestion(childFirebase, topicSelec) { listQues in
             let vc = QuestionViewController(nibName: "QuestionViewController", bundle: nil)
             vc.lisQues = listQues
+            vc.titleExam = self.topicSelec
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -104,7 +105,7 @@ extension TopicViewController: UITableViewDelegate, UITableViewDataSource{
         getTopic(itemTopic[indexPath.row])
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    private func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         cell.contentView.backgroundColor = UIColor(named: cellColors[indexPath.row % cellColors.count])
     }
 }

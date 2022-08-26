@@ -9,21 +9,45 @@ import UIKit
 
 class ResultViewController: UIViewController {
 
+    @IBOutlet weak var resultExam: UILabel!
+    @IBOutlet weak var sumQuestion: UILabel!
+    @IBOutlet weak var topicExamFinal: UILabel!
+    
+    var resultExamDis: Int = 0
+    var sumQuestionDis: Int = 0
+    var titleExamTry: String = ""
+    var childFirebase: String = "1urSOD9SR3lSD7WE1SF0CqKRa7c1INR9I-iMqQgwsKvM"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        resultExam.text = String(describing: resultExamDis)
+        sumQuestion.text = String(describing: sumQuestionDis)
+        topicExamFinal.text = titleExamTry
     }
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-    */
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    @IBAction func clickTryAgain(_ sender: Any) {
+        GetAPI.share.getAllQuestion(childFirebase, titleExamTry) { listQues in
+            let vc = QuestionViewController(nibName: "QuestionViewController", bundle: nil)
+            vc.lisQues = listQues
+            vc.titleExam = self.titleExamTry
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    @IBAction func clickContinue(_ sender: Any) {
+        let vc = TopicViewController(nibName: "TopicViewController", bundle: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
