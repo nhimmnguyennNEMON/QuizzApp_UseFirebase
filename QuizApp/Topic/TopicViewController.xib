@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopicViewController" customModule="QuizApp" customModuleProvider="target">
             <connections>
                 <outlet property="backButton" destination="8A9-fZ-whD" id="wIh-IE-uk5"/>
+                <outlet property="btStart" destination="zHh-QA-5Zq" id="XBD-ft-vV6"/>
                 <outlet property="tbtopic" destination="lwv-aB-gTw" id="jr3-ta-Nu0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -49,8 +50,8 @@
                                         <action selector="clickStart:" destination="-1" eventType="touchUpInside" id="NzN-qv-dLg"/>
                                     </connections>
                                 </button>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="arrow.backward" catalog="system" id="8A9-fZ-whD">
-                                    <rect key="frame" x="26" y="13.5" width="35" height="35"/>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="istockphoto-613335728-170667a" id="8A9-fZ-whD">
+                                    <rect key="frame" x="357" y="17" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                             </subviews>
@@ -90,7 +91,7 @@
         </view>
     </objects>
     <resources>
-        <image name="arrow.backward" catalog="system" width="128" height="98"/>
+        <image name="istockphoto-613335728-170667a" width="416" height="416"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

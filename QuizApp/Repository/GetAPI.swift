@@ -31,6 +31,7 @@ class GetAPI{
     }
     
     func getAllQuizz(_ childFB: String, complete: @escaping ((Exam)->()), topic: @escaping (([String])->()))  {
+        topicss.removeAll()
         ref = Database.database().reference()
         ref?.child(childFB).observeSingleEvent(of: .value, with: { snapshot in
             if let value = snapshot.value as? [String: Any] {

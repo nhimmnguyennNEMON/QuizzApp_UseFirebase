@@ -8,14 +8,15 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+import FirebaseAuth
 
 class TopicViewController: UIViewController {
     
     @IBOutlet weak var backButton: UIImageView!
     @IBOutlet weak var tbtopic: UITableView!
+    @IBOutlet weak var btStart: UIButton!
     
     var childFirebase: String = "1urSOD9SR3lSD7WE1SF0CqKRa7c1INR9I-iMqQgwsKvM"
-    var topicQuizzFirebase: String = "History"
     var itemTopic: [String] = []
     var topicSelec: String = ""
     var cellColors = ["F0A761","FEC362","F0BB4C","E3CB92"]
@@ -34,7 +35,6 @@ class TopicViewController: UIViewController {
             self.itemTopic = topics
             self.tbtopic.reloadData()
         }
-        
         let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
         backButton.addGestureRecognizer(tapGR)
         backButton.isUserInteractionEnabled = true
@@ -51,19 +51,28 @@ class TopicViewController: UIViewController {
     }
     
     @objc func imageTapped(sender: UITapGestureRecognizer) {
-        if sender.state == .ended {
-            self.itemTopic = []
-            let clickBack = HomeViewController(nibName: "HomeViewController", bundle: nil)
-            self.navigationController?.pushViewController(clickBack, animated: true)
+        do {
+            try FirebaseAuth.Auth.auth().signOut()
+            if sender.state == .ended {
+                let clickBack = LoginViewController(nibName: "LoginViewController", bundle: nil)
+                self.navigationController?.pushViewController(clickBack, animated: true)
+            }
+        }
+        catch{
+            print("LogOut Error")
         }
     }
     
     @IBAction func clickStart(_ sender: Any) {
-        GetAPI.share.getAllQuestion(childFirebase, topicSelec) { listQues in
-            let vc = QuestionViewController(nibName: "QuestionViewController", bundle: nil)
-            vc.lisQues = listQues
-            vc.titleExam = self.topicSelec
-            self.navigationController?.pushViewController(vc, animated: true)
+        if topicSelec == "" {
+            btStart.isEnabled = false
+        } else {
+            GetAPI.share.getAllQuestion(childFirebase, topicSelec) { listQues in
+                let vc = QuestionViewController(nibName: "QuestionViewController", bundle: nil)
+                vc.lisQues = listQues
+                vc.titleExam = self.topicSelec
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
     
@@ -103,6 +112,7 @@ extension TopicViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         getTopic(itemTopic[indexPath.row])
+        btStart.isEnabled = true
     }
     
     private func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {

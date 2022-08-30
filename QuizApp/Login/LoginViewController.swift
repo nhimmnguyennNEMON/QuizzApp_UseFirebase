@@ -14,27 +14,30 @@ import FirebaseFirestore
 import FirebaseAuth
 
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var pass: UITextField!
     @IBOutlet weak var btLogin: UIButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        pass.delegate = self
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     @IBAction func tabOnLogin(_ sender: Any) {
         view.endEditing(true)
         if email.text == "" || pass.text == "" {
-            //validate
-//            PowerplayToastKit
-//                .shared
-//                .showToast(of: .warning(title: "Warning", message: "Please enter all email and password"), at: .center, for: 5)
-            return
             self.view.makeToast("Please enter all Email and Password")
         } else {
             //check account
@@ -55,6 +58,7 @@ class LoginViewController: UIViewController {
             }
         }
     }
+    
     @IBAction func cliickRegister(_ sender: Any) {
         let clickLogin = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
         self.navigationController?.pushViewController(clickLogin, animated: true)

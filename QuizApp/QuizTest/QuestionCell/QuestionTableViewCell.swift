@@ -18,14 +18,25 @@ class QuestionTableViewCell: UITableViewCell {
         
         contentView.layer.cornerRadius = 12 //set corner radius here
         contentView.layer.borderWidth = 2 // set border width here
-        contentView.layer.borderColor = UIColor.clear.cgColor
-        
+        contentView.layer.borderColor = UIColor.clear.cgColor    
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         if selected {
+            contentView.backgroundColor = UIColor.systemBlue
+            answer.textColor = UIColor.white
+            choice.textColor = UIColor.white
+        } else {
+            contentView.backgroundColor = UIColor.clear
+            answer.textColor = UIColor.black
+            choice.textColor = UIColor.black
+        }
+    }
+    
+    func configCell(isHigilight: Bool) {
+        if isHigilight {
             contentView.backgroundColor = UIColor.systemBlue
             answer.textColor = UIColor.white
             choice.textColor = UIColor.white
