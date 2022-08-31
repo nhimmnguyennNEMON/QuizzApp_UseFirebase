@@ -12,12 +12,14 @@ import FirebaseCore
 import FirebaseFirestore
 import FirebaseAuth
 
-@UIApplicationMain
+@main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var window: UIWindow?
+    var navigationController: UINavigationController = UINavigationController()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        
         return true
     }
 

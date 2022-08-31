@@ -9,7 +9,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopicViewController" customModule="QuizApp" customModuleProvider="target">
             <connections>
-                <outlet property="backButton" destination="8A9-fZ-whD" id="wIh-IE-uk5"/>
                 <outlet property="btStart" destination="zHh-QA-5Zq" id="XBD-ft-vV6"/>
                 <outlet property="tbtopic" destination="lwv-aB-gTw" id="jr3-ta-Nu0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -50,21 +49,29 @@
                                         <action selector="clickStart:" destination="-1" eventType="touchUpInside" id="NzN-qv-dLg"/>
                                     </connections>
                                 </button>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="istockphoto-613335728-170667a" id="8A9-fZ-whD">
-                                    <rect key="frame" x="357" y="17" width="40" height="40"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8g2-Zc-hYK">
+                                    <rect key="frame" x="328.5" y="20" width="69.5" height="31"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="gray" title="Logout">
+                                        <backgroundConfiguration key="background" cornerRadius="12"/>
+                                    </buttonConfiguration>
+                                    <connections>
+                                        <action selector="btLogout:" destination="-1" eventType="touchUpInside" id="T8e-5t-Gbd"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="414" id="094-gD-Zj4"/>
                                 <constraint firstAttribute="height" constant="896" id="23m-eN-f7o"/>
+                                <constraint firstAttribute="trailing" secondItem="8g2-Zc-hYK" secondAttribute="trailing" constant="16" id="4JE-Os-DhJ"/>
                                 <constraint firstItem="HTh-db-9s3" firstAttribute="leading" secondItem="cV5-5x-djD" secondAttribute="leading" constant="100" id="6bi-FI-Dzw"/>
                                 <constraint firstItem="lwv-aB-gTw" firstAttribute="leading" secondItem="cV5-5x-djD" secondAttribute="leading" constant="36" id="EcF-Z3-E6F"/>
                                 <constraint firstItem="HTh-db-9s3" firstAttribute="top" secondItem="cV5-5x-djD" secondAttribute="top" constant="50" id="NUc-dt-xzV"/>
                                 <constraint firstAttribute="bottom" secondItem="lwv-aB-gTw" secondAttribute="bottom" constant="348" id="PbP-HS-dVQ"/>
                                 <constraint firstAttribute="trailing" secondItem="lwv-aB-gTw" secondAttribute="trailing" constant="36" id="Rrb-tW-2jD"/>
                                 <constraint firstItem="lwv-aB-gTw" firstAttribute="top" secondItem="HTh-db-9s3" secondAttribute="bottom" constant="50" id="Shz-uy-iLD"/>
+                                <constraint firstItem="8g2-Zc-hYK" firstAttribute="top" secondItem="cV5-5x-djD" secondAttribute="top" constant="20" id="VnN-hm-gb0"/>
                                 <constraint firstItem="zHh-QA-5Zq" firstAttribute="top" secondItem="lwv-aB-gTw" secondAttribute="bottom" constant="61" id="Xsa-y4-vro"/>
                                 <constraint firstItem="zHh-QA-5Zq" firstAttribute="leading" secondItem="cV5-5x-djD" secondAttribute="leading" constant="36" id="ax5-EO-Hdh"/>
                                 <constraint firstAttribute="trailing" secondItem="HTh-db-9s3" secondAttribute="trailing" constant="100" id="reH-zX-Q3O"/>
@@ -91,7 +98,6 @@
         </view>
     </objects>
     <resources>
-        <image name="istockphoto-613335728-170667a" width="416" height="416"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -30,22 +30,21 @@ class GetAPI{
         })
     }
     
-    func getAllQuizz(_ childFB: String, complete: @escaping ((Exam)->()), topic: @escaping (([String])->()))  {
+    func getAllQuizz(_ childFB: String, complete: @escaping (([Exam])->()))  {
         topicss.removeAll()
+        var tempExam: [Exam] = []
         ref = Database.database().reference()
         ref?.child(childFB).observeSingleEvent(of: .value, with: { snapshot in
             if let value = snapshot.value as? [String: Any] {
                 for topics in value{
-                    let title: String = topics.key
-                    self.topicss.append(title)
                     var quizExam: [Questions]?
                     if let topic = topics.value as? [Any] {
                         quizExam = stringArrayToData(from: topic)?.tranforms(to: [Questions].self)
-                        let examdata = Exam(title: self.topicss, listQuestion: quizExam!)
-                        complete(examdata)
+                        let examdata = Exam(title: topics.key, listQuestion: quizExam ?? [])
+                        tempExam.append(examdata)
                     }
                 }
-                topic(self.topicss)
+                complete(tempExam)
             }
         })
     }

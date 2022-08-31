@@ -47,6 +47,7 @@ class QuestionViewController: UIViewController {
         topicExam.text = titleExam
         getQuestionSelected()
         startOtpTimer(totalTime)
+        checkButton()
         
     }
     
@@ -65,6 +66,7 @@ class QuestionViewController: UIViewController {
             }
         }
     }
+    
     func timeFormatted(_ totalSeconds: Int) -> String {
         let seconds: Int = totalSeconds % 60
         let minutes: Int = (totalSeconds / 60) % 60
@@ -169,6 +171,17 @@ class QuestionViewController: UIViewController {
         stopTimerTest()
     }
     
+    func checkButton(){
+        if indexQues >= lisQues.count - 1{
+            blockBT(btNext)
+        } else if indexQues == 0 {
+            blockBT(btPre)
+        } else {
+            openBT(btNext)
+            openBT(btPre)
+        }
+    }
+    
     @IBAction func clickSubmit(_ sender: Any) {
         let vc = ResultViewController(nibName: "ResultViewController", bundle: nil)
         vc.resultExamDis = pointExamTrue
@@ -181,8 +194,7 @@ class QuestionViewController: UIViewController {
         if indexQues < lisQues.count - 1 {
             indexQues = indexQues + 1
             getQuestionSelected(indexQues)
-            openBT(btNext)
-            openBT(btPre)
+            checkButton()
             checkAnswer(indexQues - 1)
             addAnswer()
         }
@@ -195,8 +207,7 @@ class QuestionViewController: UIViewController {
         if indexQues >= 1 {
             indexQues = indexQues - 1
             getQuestionSelected(indexQues)
-            openBT(btPre)
-            openBT(btNext)
+            checkButton()
             checkAnswer(indexQues - 1)
             addAnswer()
         }

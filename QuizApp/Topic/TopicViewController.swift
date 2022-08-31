@@ -21,6 +21,9 @@ class TopicViewController: UIViewController {
     var topicSelec: String = ""
     var cellColors = ["F0A761","FEC362","F0BB4C","E3CB92"]
     
+    var listExam: [Exam] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tbtopic.register(UINib(nibName: "TestTableViewCell", bundle: nil),
@@ -29,15 +32,10 @@ class TopicViewController: UIViewController {
         tbtopic.delegate = self
         tbtopic.dataSource = self
         
-        GetAPI.share.getAllQuizz(childFirebase) { ques in
-            
-        } topic: { topics in
-            self.itemTopic = topics
+        GetAPI.share.getAllQuizz(childFirebase) { examDatas in
+            self.listExam = examDatas
             self.tbtopic.reloadData()
         }
-        let tapGR = UITapGestureRecognizer(target: self, action: #selector(self.imageTapped))
-        backButton.addGestureRecognizer(tapGR)
-        backButton.isUserInteractionEnabled = true
         
     }
     
@@ -51,16 +49,32 @@ class TopicViewController: UIViewController {
     }
     
     @objc func imageTapped(sender: UITapGestureRecognizer) {
-        do {
-            try FirebaseAuth.Auth.auth().signOut()
-            if sender.state == .ended {
+        
+    }
+    
+    func displayAlert() {
+        let dialogMessage = UIAlertController(title: "Xác Nhận!", message: "Bạn Có Muốn LogOut Không?", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Có", style: .default, handler: { (action) -> Void in
+            do {
+                try FirebaseAuth.Auth.auth().signOut()
                 let clickBack = LoginViewController(nibName: "LoginViewController", bundle: nil)
                 self.navigationController?.pushViewController(clickBack, animated: true)
             }
+            catch{
+                print("LogOut Error")
+            }
+        })
+        let cancel = UIAlertAction(title: "Không", style: .cancel) { (action) -> Void in
+            
         }
-        catch{
-            print("LogOut Error")
-        }
+        dialogMessage.addAction(ok)
+        dialogMessage.addAction(cancel)
+        self.present(dialogMessage, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func btLogout(_ sender: Any) {
+        displayAlert()
     }
     
     @IBAction func clickStart(_ sender: Any) {
@@ -92,12 +106,12 @@ class TopicViewController: UIViewController {
 
 extension TopicViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemTopic.count
+        return listExam.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tbtopic.dequeueReusableCell(withIdentifier: "TestTableViewCell", for: indexPath) as? TestTableViewCell {
-            cell.lbTopic.text = itemTopic[indexPath.row]
+            cell.lbTopic.text = listExam[indexPath.row].title
             return cell
         }
         return UITableViewCell()
@@ -111,7 +125,7 @@ extension TopicViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        getTopic(itemTopic[indexPath.row])
+        getTopic(listExam[indexPath.row].title ?? "")
         btStart.isEnabled = true
     }
     

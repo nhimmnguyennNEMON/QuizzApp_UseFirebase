@@ -30,9 +30,9 @@ struct TopicQuiz: Codable{
 }
 
 class Exam: NSObject {
-    var title: [String] = []
+    var title: String?
     var listQuestion: [Questions]
-    init(title: [String], listQuestion: [Questions]) {
+    init(title: String, listQuestion: [Questions]) {
         self.title = title
         self.listQuestion = listQuestion
     }
