@@ -9,14 +9,16 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    var window: UIWindow!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
     @IBAction func btLogin(_ sender: Any) {
-        let clickLogin = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        self.navigationController?.pushViewController(clickLogin, animated: true)
+        let vc = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        self.present(vc, animated: true, completion: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -28,4 +30,6 @@ class HomeViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
+    
+    
 }

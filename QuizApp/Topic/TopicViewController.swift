@@ -12,6 +12,8 @@ import FirebaseAuth
 
 class TopicViewController: UIViewController {
     
+    static var share = TopicViewController()
+    
     @IBOutlet weak var backButton: UIImageView!
     @IBOutlet weak var tbtopic: UITableView!
     @IBOutlet weak var btStart: UIButton!
@@ -57,8 +59,8 @@ class TopicViewController: UIViewController {
         let ok = UIAlertAction(title: "Có", style: .default, handler: { (action) -> Void in
             do {
                 try FirebaseAuth.Auth.auth().signOut()
-                let clickBack = LoginViewController(nibName: "LoginViewController", bundle: nil)
-                self.navigationController?.pushViewController(clickBack, animated: true)
+                let vc = HomeViewController(nibName: "HomeViewController", bundle: nil)
+                self.setRootViewController(vc)
             }
             catch{
                 print("LogOut Error")
@@ -81,12 +83,16 @@ class TopicViewController: UIViewController {
         if topicSelec == "" {
             btStart.isEnabled = false
         } else {
-            GetAPI.share.getAllQuestion(childFirebase, topicSelec) { listQues in
-                let vc = QuestionViewController(nibName: "QuestionViewController", bundle: nil)
-                vc.lisQues = listQues
-                vc.titleExam = self.topicSelec
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
+            getAllQuiz(childFirebase, topicSelec)
+        }
+    }
+    
+    func getAllQuiz(_ childFB: String, _ topicFB: String){
+        GetAPI.share.getAllQuestion(childFB, topicFB) { listQues in
+            let vc = QuestionViewController(nibName: "QuestionViewController", bundle: nil)
+            vc.lisQues = listQues
+            vc.titleExam = self.topicSelec
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     

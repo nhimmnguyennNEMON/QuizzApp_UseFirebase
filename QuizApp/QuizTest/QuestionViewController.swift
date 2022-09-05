@@ -141,11 +141,7 @@ class QuestionViewController: UIViewController {
     func displayAlert() {
         let dialogMessage = UIAlertController(title: "Xác Nhận!", message: "Bạn Có Muốn Dừng Bài Thi Không?", preferredStyle: .alert)
         let ok = UIAlertAction(title: "Có", style: .default, handler: { (action) -> Void in
-            let vc = ResultViewController(nibName: "ResultViewController", bundle: nil)
-            vc.resultExamDis = self.pointExamTrue
-            vc.sumQuestionDis = self.lisQues.count
-            vc.titleExamTry = self.titleExam
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.submit()
         })
         let cancel = UIAlertAction(title: "Không", style: .cancel) { (action) -> Void in
             self.startOtpTimer(self.totalTime)
@@ -182,12 +178,17 @@ class QuestionViewController: UIViewController {
         }
     }
     
-    @IBAction func clickSubmit(_ sender: Any) {
+    func submit(){
         let vc = ResultViewController(nibName: "ResultViewController", bundle: nil)
         vc.resultExamDis = pointExamTrue
         vc.sumQuestionDis = lisQues.count
         vc.titleExamTry = titleExam
-        self.navigationController?.pushViewController(vc, animated: true)
+        vc.lisQues = lisQues
+        setRootViewController(vc)
+    }
+    
+    @IBAction func clickSubmit(_ sender: Any) {
+        submit()
     }
     
     @IBAction func nextQues(_ sender: Any) {

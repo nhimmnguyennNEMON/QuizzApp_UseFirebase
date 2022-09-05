@@ -28,10 +28,6 @@ class RegisterViewController: UIViewController {
     @IBAction func clickRegister(_ sender: Any) {
         view.endEditing(true)
         if email.text == "" || pass.text == "" {
-            //validate
-//            PowerplayToastKit
-//                .shared
-//                .showToast(of: .warning(title: "Warning", message: "Please enter all email and password"), at: .center, for: 5)
             self.view.makeToast("Please enter all Email and Password")
         } else {
             //check account

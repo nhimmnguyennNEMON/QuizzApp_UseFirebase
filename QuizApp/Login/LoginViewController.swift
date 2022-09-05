@@ -47,13 +47,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     self?.view.makeToast(error!.localizedDescription)
                 } else{
                     authData?.user.reload(completion: { (error) in
-                        if (authData?.user.isEmailVerified)! {
+                        if (((authData?.user.isEmailVerified)) == true) {
                             self?.view.makeToast("Login Succcessfully!")
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                 let vc = TopicViewController(nibName: "TopicViewController", bundle: nil)
-                                self?.navigationController?.pushViewController(vc, animated: true)
+                                self?.setRootViewController(vc)
                             }
-                        }
+                        } 
                     })
                 }
             }
@@ -61,7 +61,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func cliickRegister(_ sender: Any) {
-        let clickLogin = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
-        self.navigationController?.pushViewController(clickLogin, animated: true)
+        let vc = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
+        self.present(vc, animated: true, completion: nil)
     }
 }

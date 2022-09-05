@@ -16,7 +16,9 @@ class ResultViewController: UIViewController {
     var resultExamDis: Int = 0
     var sumQuestionDis: Int = 0
     var titleExamTry: String = ""
+    var lisQues: [Questions] = []
     var childFirebase: String = "1urSOD9SR3lSD7WE1SF0CqKRa7c1INR9I-iMqQgwsKvM"
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +27,6 @@ class ResultViewController: UIViewController {
         sumQuestion.text = String(describing: sumQuestionDis)
         topicExamFinal.text = titleExamTry
     }
-
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -38,16 +39,14 @@ class ResultViewController: UIViewController {
     }
     
     @IBAction func clickTryAgain(_ sender: Any) {
-        GetAPI.share.getAllQuestion(childFirebase, titleExamTry) { listQues in
-            let vc = QuestionViewController(nibName: "QuestionViewController", bundle: nil)
-            vc.lisQues = listQues
-            vc.titleExam = self.titleExamTry
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        let vc = QuestionViewController(nibName: "QuestionViewController", bundle: nil)
+        vc.lisQues = lisQues
+        vc.titleExam = titleExamTry
+        self.setRootViewController(vc)
     }
     
     @IBAction func clickContinue(_ sender: Any) {
         let vc = TopicViewController(nibName: "TopicViewController", bundle: nil)
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.setRootViewController(vc)
     }
 }

@@ -39,6 +39,7 @@
 		8DC4B08328ACF0F8001D64C7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC4B08128ACF0F8001D64C7 /* HomeViewController.swift */; };
 		8DC4B08428ACF0F8001D64C7 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8DC4B08228ACF0F8001D64C7 /* HomeViewController.xib */; };
 		8DD0A1C828AC956300A79E13 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DD0A1C728AC956300A79E13 /* GoogleService-Info.plist */; };
+		8DD76D0728C5DF3900C53DE6 /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DD76D0628C5DF3900C53DE6 /* Extention.swift */; };
 		B20882D3DCEF016D08420684 /* Pods_QuizApp_QuizAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3FFA294B71CE9840CC1EE8D /* Pods_QuizApp_QuizAppUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,7 @@
 		8DC4B08128ACF0F8001D64C7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8DC4B08228ACF0F8001D64C7 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		8DD0A1C728AC956300A79E13 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8DD76D0628C5DF3900C53DE6 /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
 		8F15DF4EAA3FC581924D0155 /* Pods-QuizApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizApp.release.xcconfig"; path = "Target Support Files/Pods-QuizApp/Pods-QuizApp.release.xcconfig"; sourceTree = "<group>"; };
 		B476FBC980916B5C3B260D97 /* Pods-QuizApp-QuizAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizApp-QuizAppUITests.release.xcconfig"; path = "Target Support Files/Pods-QuizApp-QuizAppUITests/Pods-QuizApp-QuizAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CBAA59C1EB449F92632CFAA1 /* Pods-QuizAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizAppTests.release.xcconfig"; path = "Target Support Files/Pods-QuizAppTests/Pods-QuizAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				8D71E14C28AB46F0006995AB /* LaunchScreen.storyboard */,
 				8D71E14F28AB46F0006995AB /* Info.plist */,
 				8D71E14728AB46EE006995AB /* QuizApp.xcdatamodeld */,
+				8DD76D0628C5DF3900C53DE6 /* Extention.swift */,
 			);
 			path = QuizApp;
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				8D71E14928AB46EE006995AB /* QuizApp.xcdatamodeld in Sources */,
 				8DA0916C28AE478D001790BD /* TopicModel.swift in Sources */,
 				8DC4B08328ACF0F8001D64C7 /* HomeViewController.swift in Sources */,
+				8DD76D0728C5DF3900C53DE6 /* Extention.swift in Sources */,
 				8D71E14128AB46EE006995AB /* SceneDelegate.swift in Sources */,
 				8DA80D6928B3287100F010BB /* GetAPI.swift in Sources */,
 				8D71E19C28AB844A006995AB /* LoginViewController.swift in Sources */,
